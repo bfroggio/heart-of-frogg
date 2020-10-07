@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://media.giphy.com/media/4cdIVYlOzIz6Rswdh6/giphy.gif">
+    <img src="https://media.giphy.com/media/4cdIVYlOzIz6Rswdh6/giphy.gif" width="200">
 </p>
 
 # Heart of Frogg
