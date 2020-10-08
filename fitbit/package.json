@@ -1,0 +1,29 @@
+{
+  "devDependencies": {
+    "@fitbit/sdk": "~4.2.0"
+  },
+  "fitbit": {
+    "appUUID": "bd7f772f-b717-4dad-920d-540c0e32722c",
+    "appType": "app",
+    "appDisplayName": "Heart of Frogg",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#009688",
+    "requestedPermissions": [
+      "access_heart_rate",
+      "access_internet",
+      "run_background"
+    ],
+    "buildTargets": [
+      "mira",
+      "higgs",
+      "meson",
+      "gemini"
+    ],
+    "i18n": {
+      "en-US": {
+        "name": "Heart of Frogg"
+      }
+    },
+    "defaultLanguage": "en-US"
+  }
+}
