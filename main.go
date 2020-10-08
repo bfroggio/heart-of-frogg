@@ -5,6 +5,7 @@ import (
 	"strconv"
 
 	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 )
 
 // TODO Save historic heart rate data
@@ -12,6 +13,7 @@ var heartRate = 0
 
 func main() {
 	e := echo.New()
+	e.Use(middleware.CORS())
 
 	e.GET("/heart", func(c echo.Context) error {
 		return c.String(http.StatusOK, strconv.Itoa(heartRate))

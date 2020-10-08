@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <style>
+        @keyframes heartbeat {
+            0% {
+                transform: scale(.75);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            80% {
+                transform: scale(.75);
+            }
+
+            100% {
+                transform: scale(.75);
+            }
+        }
+
+        #heart {
+            background-image: url("heart.png");
+            width: 500px;
+            height: 500px;
+            animation: heartbeat 1s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="heart"></div>
+</body>
+
+<script>
+    setInterval(function () {
+        $.get("http://localhost:8080/heart", function (data) {
+            $("#heart").css('animation', "heartbeat " + 60 / data + "s infinite");
+        });
+    }, 500);
+</script>
+
+</html>
