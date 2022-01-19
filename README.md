@@ -23,3 +23,20 @@ I wanted a way to display my heart rate live on [my Twitch stream](http://jessem
 1. Start the "Heart of Frogg" watch app on your Fitbit device
 1. Create a web source in OBS that points to `http://localhost:8080/ui`
 1. Play a game that gets your heart rate pumping!
+
+## Customization
+
+### Server Port
+
+The `heart-of-frogg.exe` server defaults to using port 8080. If you already use port 8080 for something else, you'll need to change the server port. To do this, edit `port.txt` to contain the port number you want to use. You'll need to restart the server and then update your Fitbit settings and OBS web source to use the new port number.
+
+### UI
+
+The HTML file in `/ui` is what's shown in OBS. If you want to customize what it looks like, go ahead! Tweak to your liking and then refresh your OBS source to see your changes. See the "How It Works" section below for details.
+
+## How It Works
+
+- The `heart-of-frogg.exe` server listens for HTTP POST calls at `http://localhost:8080/heart/:rate`
+- The Fitbit app checks your heart rate and then makes an HTTP POST call with the heart rate value to the server (e.g. `http://192.168.1.101:8080/heart/86`
+- OBS loads `index.html` as a source which uses JavaScript to periodically do an HTTP GET request to `http://localhost:8080/heart` to retrieve your current heart rate as reported to the server by your watch
+    - Currently, `index.html` shows an animation of a heart beating at the appropriate rate but it would be easy to instead show a number since the number value of your heart rate is already known by `index.html`
