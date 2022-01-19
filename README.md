@@ -18,7 +18,7 @@ I wanted a way to display my heart rate live on [my Twitch stream](http://jessem
 1. Install the "Heart of Frogg" app on your Fitbit
     - For the Versa 3 and the Sense, [use this app](https://gallery.fitbit.com/details/18706b64-15d2-4e58-a2c1-3ff4e3093bd3)
     - For older devices, [use this app](https://gallery.fitbit.com/details/bd7f772f-b717-4dad-920d-540c0e32722c)
-1. Input your computer's internal IP address (as shown by `heart-of-frogg.exe` on server start) and the `heart-of-frogg.exe` server's port into the "Heart of Frogg" Fitbit app settings on your phone
+1. Input your computer's internal IP address (as shown by `heart-of-frogg.exe` on server start) and the `heart-of-frogg.exe` server's port ("8080" by default) into the "Heart of Frogg" Fitbit app settings on your phone
 1. Start the "Heart of Frogg" watch app on your Fitbit device
 1. Create a web source in OBS that points to `http://localhost:8080/ui/index.html`
 1. Play a game that gets your heart rate pumping!
