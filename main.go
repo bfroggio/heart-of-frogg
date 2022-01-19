@@ -1,9 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"log"
+	"net"
 	"net/http"
 	"strconv"
+	"strings"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
@@ -18,7 +21,13 @@ func main() {
 		log.Fatal("Could not read config file:", err.Error())
 	}
 
+	fmt.Println("Welcome to Heart of Frogg! Please see https://github.com/bfroggio/heart-of-frogg for usage instructions.")
+
+	fmt.Println("I found these local IP addresses on your machine:")
+	getLocalIP() // Print the local IPs in the terminal
+
 	e := echo.New()
+	e.HideBanner = true
 	e.Use(middleware.CORS())
 
 	e.GET("/heart", func(c echo.Context) error {
@@ -53,4 +62,26 @@ func readConfigFile() error {
 	}
 
 	return nil
+}
+
+// A quick and dirty function to print local IPs
+func getLocalIP() {
+	list, err := net.Interfaces()
+	if err != nil {
+		panic(err)
+	}
+
+	for _, iface := range list {
+		addrs, err := iface.Addrs()
+
+		if err != nil {
+			panic(err)
+		}
+
+		for _, addr := range addrs {
+			if strings.Contains(addr.String(), "192.168.") {
+				fmt.Println("  " + iface.Name + ": " + strings.Split(addr.String(), "/")[0])
+			}
+		}
+	}
 }
