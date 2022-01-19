@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"log"
+	"net"
 	"net/http"
 	"strconv"
 
@@ -17,6 +19,8 @@ func main() {
 	if err != nil {
 		log.Fatal("Could not read config file:", err.Error())
 	}
+
+	getLocalIP() // Print the local IP in the terminal
 
 	e := echo.New()
 	e.Use(middleware.CORS())
@@ -53,4 +57,22 @@ func readConfigFile() error {
 	}
 
 	return nil
+}
+
+func getLocalIP() {
+	list, err := net.Interfaces()
+	if err != nil {
+		panic(err)
+	}
+
+	for i, iface := range list {
+		fmt.Printf("%d name=%s %v\n", i, iface.Name, iface)
+		addrs, err := iface.Addrs()
+		if err != nil {
+			panic(err)
+		}
+		for j, addr := range addrs {
+			fmt.Printf(" %d %v\n", j, addr)
+		}
+	}
 }
