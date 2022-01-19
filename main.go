@@ -59,6 +59,7 @@ func readConfigFile() error {
 	return nil
 }
 
+// A quick and dirty function to print local IPs
 func getLocalIP() {
 	list, err := net.Interfaces()
 	if err != nil {
@@ -74,7 +75,13 @@ func getLocalIP() {
 
 		for _, addr := range addrs {
 			if strings.Contains(addr.String(), "192.168.") {
-				log.Println(iface.Name + ": " + addr.String())
+				cleanIP := addr.String()
+
+				if strings.Index(cleanIP, "/") > 0 {
+					cleanIP = cleanIP[:len(cleanIP)-strings.Index(cleanIP, "/")]
+				}
+
+				log.Println(iface.Name + ": " + cleanIP)
 			}
 		}
 	}
