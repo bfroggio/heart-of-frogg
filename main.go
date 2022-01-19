@@ -21,6 +21,8 @@ func main() {
 
 	e.POST("/heart/:rate", updateHeartRate)
 
+	e.Static("/ui", "ui")
+
 	e.Logger.Fatal(e.Start(":8080"))
 }
 
