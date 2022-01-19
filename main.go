@@ -1,11 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net"
 	"net/http"
 	"strconv"
+	"strings"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
@@ -65,14 +65,17 @@ func getLocalIP() {
 		panic(err)
 	}
 
-	for i, iface := range list {
-		fmt.Printf("%d name=%s %v\n", i, iface.Name, iface)
+	for _, iface := range list {
 		addrs, err := iface.Addrs()
+
 		if err != nil {
 			panic(err)
 		}
-		for j, addr := range addrs {
-			fmt.Printf(" %d %v\n", j, addr)
+
+		for _, addr := range addrs {
+			if strings.Contains(addr.String(), "192.168.") {
+				log.Println(iface.Name + ": " + addr.String())
+			}
 		}
 	}
 }
