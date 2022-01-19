@@ -75,13 +75,7 @@ func getLocalIP() {
 
 		for _, addr := range addrs {
 			if strings.Contains(addr.String(), "192.168.") {
-				cleanIP := addr.String()
-
-				if strings.Index(cleanIP, "/") > 0 {
-					cleanIP = cleanIP[:len(cleanIP)-strings.Index(cleanIP, "/")]
-				}
-
-				log.Println(iface.Name + ": " + cleanIP)
+				log.Println(iface.Name + ": " + strings.Split(addr.String(), "/")[0])
 			}
 		}
 	}
