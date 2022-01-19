@@ -36,6 +36,6 @@ The `heart-of-frogg.exe` server defaults to using port 8080. If you already use 
 ## How It Works
 
 - The `heart-of-frogg.exe` server listens for HTTP POST calls at `http://localhost:8080/heart/:rate`
-- The Fitbit app checks your heart rate and then makes an HTTP POST call with the heart rate value to the server (e.g. `http://192.168.1.101:8080/heart/86`
+- The Fitbit app checks your heart rate and then makes an HTTP POST call with the heart rate value to the server (e.g. `http://192.168.1.101:8080/heart/86`)
 - OBS loads `/ui/index.html` as a source which uses JavaScript to periodically do an HTTP GET request to `http://localhost:8080/heart` to retrieve your current heart rate as reported to the server by your watch
     - Currently, `/ui/index.html` shows an animation of a heart beating at the appropriate rate but it would be easy to instead show a number since the number value of your heart rate is already known by `index.html`
