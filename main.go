@@ -27,6 +27,7 @@ func main() {
 	getLocalIP() // Print the local IPs in the terminal
 
 	e := echo.New()
+	e.HideBanner = true
 	e.Use(middleware.CORS())
 
 	e.GET("/heart", func(c echo.Context) error {
