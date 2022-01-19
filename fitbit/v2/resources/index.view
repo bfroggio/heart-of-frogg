@@ -1,0 +1,6 @@
+<svg viewport-fill="black">
+  <text id="heartRate" x="50%" y="50%+35"
+        font-family="System-Regular" fill="#ff6b6b"
+        font-size="120" font-weight="bold"
+        text-anchor="middle"></text>
+</svg>
