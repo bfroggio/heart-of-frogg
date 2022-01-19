@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net"
 	"net/http"
@@ -20,7 +21,10 @@ func main() {
 		log.Fatal("Could not read config file:", err.Error())
 	}
 
-	getLocalIP() // Print the local IP in the terminal
+	fmt.Println("Welcome to Heart of Frogg! Please see https://github.com/bfroggio/heart-of-frogg for usage instructions.")
+
+	fmt.Println("I found these local IP addresses on your machine:")
+	getLocalIP() // Print the local IPs in the terminal
 
 	e := echo.New()
 	e.Use(middleware.CORS())
@@ -75,7 +79,7 @@ func getLocalIP() {
 
 		for _, addr := range addrs {
 			if strings.Contains(addr.String(), "192.168.") {
-				log.Println(iface.Name + ": " + strings.Split(addr.String(), "/")[0])
+				fmt.Println("  " + iface.Name + ": " + strings.Split(addr.String(), "/")[0])
 			}
 		}
 	}
