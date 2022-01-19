@@ -28,7 +28,7 @@ I wanted a way to display my heart rate live on [my Twitch stream](http://jessem
 
 ### Server Port
 
-The `heart-of-frogg.exe` server defaults to using port 8080. If you already use port 8080 for something else, you'll need to change the server port. To do this, edit `port.txt` to contain the port number you want to use. You'll need to restart the server and then update your Fitbit settings and OBS web source to use the new port number.
+The `heart-of-frogg.exe` server defaults to using port 8080. If you already use port 8080 for something else, you'll need to change the server port. To do this, edit `config.toml` to contain the port number you want to use. You'll need to restart the server and then update your Fitbit settings and OBS web source to use the new port number.
 
 ### UI
 

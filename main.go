@@ -1,17 +1,23 @@
 package main
 
 import (
+	"log"
 	"net/http"
 	"strconv"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
+	"github.com/spf13/viper"
 )
 
-// TODO Save historic heart rate data
 var heartRate = 0
 
 func main() {
+	err := readConfigFile()
+	if err != nil {
+		log.Fatal("Could not read config file:", err.Error())
+	}
+
 	e := echo.New()
 	e.Use(middleware.CORS())
 
@@ -23,7 +29,7 @@ func main() {
 
 	e.Static("/ui", "ui")
 
-	e.Logger.Fatal(e.Start(":8080"))
+	e.Logger.Fatal(e.Start(":" + viper.GetString("port")))
 }
 
 func updateHeartRate(c echo.Context) error {
@@ -35,4 +41,16 @@ func updateHeartRate(c echo.Context) error {
 	heartRate = newHeartRate
 
 	return c.String(http.StatusOK, strconv.Itoa(heartRate))
+}
+
+func readConfigFile() error {
+	viper.SetConfigName("config") // name of config file (without extension)
+	viper.SetConfigType("toml")   // REQUIRED if the config file does not have the extension in the name
+	viper.AddConfigPath(".")      // optionally look for config in the working directory
+	err := viper.ReadInConfig()
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
