@@ -4,6 +4,10 @@
 import document from "document";
 import { HeartRateSensor } from "heart-rate";
 import * as messaging from "messaging";
+import { me } from "appbit";
+
+// Disable timeout, so app stays open when screen turns off
+me.appTimeoutEnabled = false;
 
 // Fetch UI elements we will need to change
 let hrLabel = document.getElementById("heartRate");
