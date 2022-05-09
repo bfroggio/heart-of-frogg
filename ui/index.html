@@ -1,6 +1,9 @@
 <html>
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <style>
@@ -23,22 +26,53 @@
         }
 
         #heart {
+            display: inline-block;
+            vertical-align: top;
+            padding: 0;
+            margin: 0;
             background-image: url("heart.png");
             width: 500px;
             height: 500px;
             animation: heartbeat 1s infinite;
         }
+
+        #bpm {
+            display: inline-block;
+            vertical-align: top;
+            padding: 0;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+
+        #bpmValue {
+            display: flex;
+            height: 500px;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            color: #FF6B6B;
+            font-size: 400px;
+            font-weight: bold;
+            font-family: 'Koulen', sans-serif;
+        }
     </style>
 </head>
 
 <body>
+    <!-- Delete the following line if you don't want an animating heart shape -->
     <div id="heart"></div>
+    <!-- Delete the following lines if you don't want your BPM displayed as a number -->
+    <!-- (60 is a placeholder value, the <script> at the bottom of this file makes this display your real BPM) -->
+    <div id="bpm">
+        <div id="bpmValue">60</div>
+    </div>
 </body>
 
 <script>
     setInterval(function () {
         $.get("http://localhost:8080/heart", function (data) {
             $("#heart").css('animation', "heartbeat " + 60 / data + "s infinite");
+            $("#bpm").html(data);
         });
     }, 500);
 </script>
