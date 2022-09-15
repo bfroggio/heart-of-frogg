@@ -72,7 +72,7 @@
     setInterval(function () {
         $.get("http://localhost:8080/heart", function (data) {
             $("#heart").css('animation', "heartbeat " + 60 / data + "s infinite");
-            $("#bpm").html(data);
+            $("#bpmValue").html(data);
         });
     }, 500);
 </script>
