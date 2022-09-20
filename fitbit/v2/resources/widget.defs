@@ -1,5 +1,5 @@
 <svg>
   <defs>
-    <link rel="import" href="/mnt/sysassets/widgets_common.gui" />
+    <link rel="import" href="/mnt/sysassets/system_widget.defs" />
   </defs>
 </svg>
