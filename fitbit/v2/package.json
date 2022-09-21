@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@fitbit/sdk": "6.0"
+    "@fitbit/sdk": "~6.1.0"
   },
   "fitbit": {
     "appUUID": "18706b64-15d2-4e58-a2c1-3ff4e3093bd3",
@@ -19,7 +19,7 @@
     ],
     "i18n": {
       "en-US": {
-        "name": "Heart of Frogg"
+        "name": "Heart of Frogg v2"
       }
     },
     "defaultLanguage": "en-US"

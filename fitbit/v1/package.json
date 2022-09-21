@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@fitbit/sdk": "~4.2.0"
+    "@fitbit/sdk": "~4.3.0"
   },
   "fitbit": {
     "appUUID": "bd7f772f-b717-4dad-920d-540c0e32722c",
@@ -15,9 +15,9 @@
     ],
     "buildTargets": [
       "mira",
-      "higgs",
+      "gemini",
       "meson",
-      "gemini"
+      "higgs"
     ],
     "i18n": {
       "en-US": {
