@@ -24,6 +24,16 @@ I wanted a way to display my heart rate live on [my Twitch stream](http://jessem
 1. Create a web source in OBS that points to `http://localhost:8080/ui/index.html`
 1. Play a game that gets your heart rate pumping!
 
+## Troubleshooting
+
+If your watch isn't sending data to the server, check the following:
+
+- Verify that the port you enter in the Fitbit settings and the port in `config.toml` are the same; they **MUST** match
+- Verify that the IP address you enter in the Fitbit settings is the correct IP of the computer that's running `heart-of-frogg.exe`
+    - The IP addresses that `heart-of-frogg.exe` automatically displays is just a best guess of what your IP is; try [manually finding your IP address](https://support.microsoft.com/en-us/windows/find-your-ip-address-in-windows-f21a9bbc-c582-55cd-35e0-73431160a1b9) (Heart of Frogg has only been tested with IPv4 IP addresses) 
+- Restart the `heart-of-frogg.exe` server
+- Try running `heart-of-frogg.exe` as Administrator (right click on `heart-of-frogg.exe` and select "Run as administrator")
+
 ## Customization
 
 ### Server Port
