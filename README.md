@@ -1,3 +1,5 @@
+> Note: I no longer stream to Twitch or own a Fitbit. You're welcome to try using it or to modify the code yourself, but I am unable to offer support if you get stuck.
+
 <p align="center">
     <img src="https://media.giphy.com/media/4cdIVYlOzIz6Rswdh6/giphy.gif" width="200">
 </p>
